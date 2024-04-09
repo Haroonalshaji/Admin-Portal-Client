@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-2 shadow d-flex align-items-center flex-column">
+        <h4 class="side_btn mt-5 text-center ms-4 fw-bolder"><a routerLink="/dashboard">Home</a></h4>
+        <h4 class="side_btn my-4 text-center ms-4 fw-bolder"><a routerLink="/users">User</a></h4>
+    </div>
+    <div class="col-9">
+
+        <h3 class="m-5 fw-bolder text-center">Add User</h3>
+        <!-- <button class="btn btn-light" style="float: right;" routerLink="/users/add">Add <i class="fa-solid fa-user-plus "></i></button> -->
+
+        <form #adduser="ngForm" (ngSubmit)="addUser()" class="w-50 m-5">
+            <input type="text" [(ngModel)]="user.id" placeholder="Id" name="id" #id="ngModel" class="form-control m-3"
+                pattern="[0-9]*" required>
+            <div *ngIf="id.invalid && id.touched" class="text-danger px-3 fw-bolder">*Invalid Id</div>
+
+            <input type="text" [(ngModel)]="user.name" name="name" placeholder="Name" #name="ngModel"
+                class="form-control m-3" required>
+            <div *ngIf="name.invalid && name.touched" class="text-danger px-3 fw-bolder">*Invalid Name</div>
+
+            <input type="text" [(ngModel)]="user.email" name="email" placeholder="Email" #email="ngModel"
+                class="form-control m-3" required>
+            <div *ngIf="email.invalid && email.touched" class="text-danger px-3 fw-bolder">*Invalid Email</div>
+
+            <label for="status" class="px-3 text-secondary">Select Employee Status :</label>
+            <select #active="ngModel" class="form-control w-25 m-3" [(ngModel)]="user.active" name="active"
+                #status="ngModel" id="status" required>
+                <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                <option value="1">Active</option>
+                <option value="0">In-Active</option>
+            </select>
+            <div *ngIf="status.invalid && status.touched" class="text-danger px-3 fw-bolder">*Invalid Status</div>
+
+            <div class="text-center">
+                <button [disabled]="adduser.invalid" class="btn btn-success">Save</button>
+            </div>
+        </form>
+
+    </div>
+</div>

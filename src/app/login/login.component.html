@@ -1,0 +1,24 @@
+<body>
+
+    <div class="outer-container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <!-- {{email}},{{password}} This is to show how the interpolation works -->
+            <form #loginform="ngForm" (ngSubmit)="login()" class="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" [(ngModel)]="email" #userEmail="ngModel" required
+                    email>
+                <div *ngIf="userEmail.invalid && userEmail.touched" class="text-danger fw-bolder">* Invalid Email</div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" #userPassword="ngModel"
+                    required pattern="[a-zA-Z0-9]*">
+                <div *ngIf="userPassword.invalid && userPassword.touched" class="text-danger fw-bolder">* Invalid
+                    Password</div>
+
+                <button [disabled]="loginform.invalid" class="btn" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>

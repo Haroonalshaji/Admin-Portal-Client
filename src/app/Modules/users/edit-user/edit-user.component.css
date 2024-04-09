@@ -1,0 +1,29 @@
+.col-2{
+    background-color: rgba(211, 27, 211, 0.884);
+    height: 800px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.side_btn{
+    border: 2px solid #8B008B;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100px;
+}
+.side_btn:hover{
+    border: 2px solid whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100px;
+    transition: 0.2s;
+}
+.side_btn a:hover{
+    color: #8B008B;
+}
+.card{
+    background-color: rgba(211, 27, 211, 0.884);
+    height: 200px;
+    color: white;
+}

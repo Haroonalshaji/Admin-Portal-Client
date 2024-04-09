@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-2 shadow d-flex align-items-center flex-column">
+        <h4 class="side_btn mt-5 text-center ms-4 fw-bolder"><a routerLink="/dashboard">Home</a></h4>
+        <h4 class="side_btn my-4 text-center ms-4 fw-bolder"><a routerLink="/users">User</a></h4>
+    </div>
+    <div class="col-9">
+
+        <h3 class="m-5 fw-bolder text-center">Update User</h3>
+        <!-- <button class="btn btn-light" style="float: right;" routerLink="/users/add">Add <i class="fa-solid fa-user-plus "></i></button> -->
+
+        <form class="w-50 m-5" #edituser="ngForm" (ngSubmit)="EditUser(user.id)">
+            <input type="text" name="id" [(ngModel)]="user.id" #id="ngModel" placeholder="Id" class="form-control m-3" required>
+            <div *ngIf="id.invalid && id.touched  " class="text-danger"> Invalid Id</div>
+
+            <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" placeholder="Name" class="form-control m-3" required>
+            <div *ngIf="name.invalid && name.touched" class="text-danger"> Invalid Id</div>
+
+            <input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Email" class="form-control m-3" required>
+            <div *ngIf="email.invalid && email.touched" class="text-danger"> Invalid Id</div>
+
+            <select name="active" #active="ngModel" id="status" [(ngModel)]="user.active" class="form-control w-25 m-3"  id="">
+                <option value="">Select..</option>
+                <option value="">Active</option>
+                <option value="">In-Active</option>
+            </select>
+            <div class="text-center">
+                <button [disabled]="edituser.invalid" class="btn btn-success">Save</button>
+            </div>
+        </form>
+
+    </div>
+</div>
